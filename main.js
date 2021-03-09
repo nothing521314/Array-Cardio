@@ -30,19 +30,32 @@ const people = [
 // 1. Filter the list of inventors for those who were born in the 1500's
 
 const born = inventors.filter(bitrthday => (bitrthday.year >= 1500 && bitrthday.year < 1600));
-console.table(born);
+
+function myFunction(born){
+  for(index in born) {
+    document.getElementById("ex1").innerHTML = JSON.stringify(born);
+  }
+};
 
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
 
 const fullName = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
-console.log(fullName);
 
+function myFunction2(fullName){
+  document.getElementById("ex2").innerHTML = fullName;
+};
+  
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
 
 const sortBirth = inventors.sort((a, b) => a.year > b.year ? -1 : 1);
-console.table(sortBirth);
+
+function myFunction3(sortBirth){
+  for(index in sortBirth) {
+    document.getElementById("ex3").innerHTML = JSON.stringify(sortBirth);
+  }
+};
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
@@ -50,7 +63,10 @@ console.table(sortBirth);
 const totalYear = inventors.reduce((total, inventor) => {
   return total + (inventor.passed - inventor.year);
 }, 0);
-console.log(totalYear);
+
+function myFunction4(totalYear){
+  document.getElementById("ex4").innerHTML = totalYear;
+};
 
 // 5. Sort the inventors by years lived
 
@@ -60,7 +76,11 @@ const sortLive = inventors.sort((a, b) => {
   return (preYear > nextYear) ? -1 : 1;
 });
 
-console.table(sortLive);
+function myFunction5(sortLive){
+  for(index in sortLive) {
+    document.getElementById("ex5").innerHTML = JSON.stringify(sortLive);
+  }
+};
 
 // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
 // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
@@ -71,7 +91,12 @@ const de = links
                 .map(link => link.textContent)
                 .filter(streetName => streetName.includes('de'));
 
-console.table(de)
+function myFunction6(de){
+  for(index in de) {
+    // document.getElementById("ex3").innerHTML = JSON.stringify(sortLive);;
+    document.getElementById("ex6").innerHTML = de;
+  }
+};
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
@@ -82,7 +107,11 @@ const sortByName = people.sort((firstOne, lastOne) => {
   return aLast > bLast ? 1 : -1;
 })
 
-console.log(sortByName);
+function myFunction7(sortByName){
+  for(index in sortByName) {
+    document.getElementById("ex7").innerHTML = JSON.stringify(sortByName);
+  }
+};
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
@@ -96,4 +125,8 @@ const count = data.reduce((obj, item) => {
   return obj;
 }, {});
 
-console.log(count);
+function myFunction8(count){
+  for(index in count) {
+    document.getElementById("ex8").innerHTML = JSON.stringify(count);
+  }
+};
